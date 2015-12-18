@@ -1,0 +1,87 @@
+/*
+-------------------------------------------------
+Main sytles start
+-------------------------------------------------
+*/
+.content {
+	margin:0 auto;
+	width:960px;
+	height:auto;
+	text-align: left;
+}
+
+/*
+-------------------------------------------------
+Main Content styles start
+-------------------------------------------------
+*/
+.content-pane {
+	float:left;
+	width:620px;
+	padding:30px 30px 0 30px;
+}
+
+/*
+-------------------------------------------------
+Widget styles start
+-------------------------------------------------
+*/
+.widget-pane {
+	float:right;
+	width:220px;
+	height:auto;
+	padding:30px 30px 20px 30px;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9);
+}
+.widget-div {
+	width:220px;
+	height:auto;
+	float:left;
+	text-align:left;
+}
+
+/* Pour le nom du widget */
+.widget-title {
+	width:220px;
+	height:60px;
+	float:left;
+	text-align:left;
+	padding-bottom:10px;
+}
+
+/* Pour le rangement des éléments du widget */
+.widget-div ul {
+	float:left;
+	list-style:none;
+}
+.widget-div li {
+	display:block;
+	background:url(../images/spweb/line.png) repeat-x left bottom;
+}
+.widget-div li a {
+	list-style:none;
+	display:block;
+	height:40px;
+	line-height:40px;
+	width:220px;
+	text-decoration:none;
+}
+.widget-div li a:hover {
+	color:#5fa1c7;
+}
+.widget-div li.nobg {
+	background: none;
+}
+
+/* Parce qu'on respecte le format Article */
+.widget-div h1 {
+	font-size:18px;
+	color:#ffffff;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+	text-transform:uppercase;
+	padding-left:20px;
+	padding-top:10px;
+	font-weight:normal;
+}
+
+

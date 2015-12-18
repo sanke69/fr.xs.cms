@@ -1,0 +1,105 @@
+{ "DATABASES": [
+		{ "guest_spweb" : {
+			"TABLES" : [
+				{ "visitor" : {
+					"COLUMNS" : {
+						"uuid"          	: "INT(64) UNSIGNED NOT NULL AUTO_INCREMENT",
+						"client_uuid"      	: "INT(64) UNSIGNED NOT NULL",
+						"hashtag"          	: "VARCHAR(32)      NOT NULL",
+						"ipv4"          	: "VARCHAR(15)",
+						"ipv6"   			: "VARCHAR(128)",
+						"count"      		: "INT(10) UNSIGNED NOT NULL",
+						"first"    			: "DATETIME         NOT NULL",
+						"last"      		: "DATETIME         NOT NULL"
+					},
+					"OPTIONS" : {
+						"PRIMARY KEY"     	: "uuid",
+						"UNIQUE KEY"      	: "uuid",
+						"UNIQUE KEY"      	: "hashtag",
+						"ENGINE"          	: "InnoDB",
+						"DEFAULT CHARSET" 	: "utf8",
+						"AUTO_INCREMENT"  	: "1"
+					}
+				}},
+
+				{ "client" : {
+					"COLUMNS" : {
+						"uuid"          	: "INT(64) UNSIGNED NOT NULL AUTO_INCREMENT",
+						"platform"        	: "VARCHAR(512)      NOT NULL",
+						"name"	        	: "VARCHAR(128)     NOT NULL",
+						"codename"        	: "VARCHAR(128)     NOT NULL",
+						"version"   		: "VARCHAR(512)     NOT NULL",
+						"useragent"   		: "VARCHAR(512)     NOT NULL",
+					},
+					"OPTIONS" : {
+						"PRIMARY KEY"     	: "uuid",
+						"UNIQUE KEY"      	: "uuid",
+						"ENGINE"          	: "InnoDB",
+						"DEFAULT CHARSET" 	: "utf8",
+						"AUTO_INCREMENT"  	: "1"
+					}
+				}},
+
+				{ "user" : {
+					"COLUMNS" : {
+						"uuid"          	: "INT(64) UNSIGNED NOT NULL AUTO_INCREMENT",
+						"login"             : "VARCHAR(32)      NOT NULL",
+						"password"          : "VARCHAR(32)      NOT NULL",
+						"email"         	: "VARCHAR(128)     NOT NULL",
+						"hash_validation"   : "VARCHAR(128)",
+						"date_inscription"  : "DATE             NOT NULL",
+						"last_connection"   : "DATE             NOT NULL"
+					},
+					"OPTIONS" : {
+						"PRIMARY KEY"     	: "uuid",
+						"UNIQUE KEY"      	: "uuid",
+						"KEY"             	: "password",
+						"ENGINE"          	: "InnoDB",
+						"DEFAULT CHARSET" 	: "utf8",
+						"AUTO_INCREMENT"  	: "1"
+					}
+				}},
+
+				{ "profile" : {
+					"COLUMNS" : {
+						"uuid"          	: "INT(64) UNSIGNED NOT NULL AUTO_INCREMENT",
+						"fullname"         	: "VARCHAR(64)      NOT NULL",
+						"nickname"         	: "VARCHAR(64)      NOT NULL"
+						"param3"         	: "VARCHAR(128)"
+						"param4"           	: "VARCHAR(128)"
+						"param5"           	: "VARCHAR(128)"
+					}
+					"OPTIONS" : {
+						"UNIQUE KEY"      	: "uuid",
+						"ENGINE"          	: "InnoDB",
+						"DEFAULT CHARSET" 	: "utf8",
+						"AUTO_INCREMENT"  	: "1"
+					}
+				}},
+
+				{ "visitor_user" : {
+					"COLUMNS" : {
+						"visitor_uuid"     	: "INT(64) UNSIGNED NOT NULL",
+						"user_uuid"  		: "INT(64) UNSIGNED NOT NULL"
+					}
+					"OPTIONS" : {
+						"ENGINE"          	: "InnoDB",
+						"DEFAULT CHARSET" 	: "utf8"
+					}
+				}},
+
+				{ "user_profile" : {
+					"COLUMNS" : {
+						"user_uuid"     	: "INT(64) UNSIGNED NOT NULL",
+						"profile_uuid" 		: "INT(64) UNSIGNED NOT NULL"
+					},
+					"OPTIONS" : {
+						"ENGINE"          	: "InnoDB",
+						"DEFAULT CHARSET" 	: "utf8"
+					}
+				}}
+
+			]
+		}}
+	]
+}

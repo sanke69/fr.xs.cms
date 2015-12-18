@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.xs</groupId>
+		<artifactId>fr.xs.pom</artifactId>
+		<version>0.9.3.1</version>
+	</parent>
+
+	<artifactId>fr.xs.cms</artifactId>
+	<packaging>pom</packaging>
+
+	<name>Content Management System for Web</name>
+	<description>The POM file for the CMS Project</description>
+	<url>github.com/sanke69/cms.git</url>
+
+	<modules>
+		<module>fr.xs.cms.core</module>
+		<module>fr.xs.cms.resources</module>
+	</modules>
+
+</project>
