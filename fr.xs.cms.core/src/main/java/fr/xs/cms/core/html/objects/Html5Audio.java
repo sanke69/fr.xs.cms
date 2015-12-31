@@ -1,5 +1,7 @@
 package fr.xs.cms.core.html.objects;
 
+import java.util.List;
+
 import fr.xs.cms.core.html.HtmlObject;
 import fr.xs.cms.core.html.properties.HtmlType;
 
@@ -11,6 +13,8 @@ public class Html5Audio extends HtmlObject {
 */
 	String  id, source, alt;
 	boolean autoplay, loop, muted;
+
+	protected List<Html5Source> sources;
 	
 	public Html5Audio() {
 		super(HtmlType.AUDIO);
@@ -22,7 +26,7 @@ public class Html5Audio extends HtmlObject {
 	public Html5Audio setId(String _id) { id = _id; return this; } 
 
 	public String    getSource() { return source; }
-	public Html5Audio setSource(String _src) { source = _src; return this; } 
+	public Html5Audio setSource(String _src) { source = _src; return this; }
 
 	public String    getAlternate() { return alt; }
 	public Html5Audio setAlternative(String _alt) { alt = _alt; return this; } 
@@ -39,7 +43,7 @@ public class Html5Audio extends HtmlObject {
 	@Override public HtmlType Type() { return HtmlType.AUDIO; }
 
 	@Override public String toHtml() { 
-		return "<audio"
+		String html = "<audio"
 				+ (id       != null  ? " id='" + id + "' " : "")
 				+ (autoplay != false ? " autoplay" : "")
 				+ (loop     != false ? " loop" : "")
@@ -49,10 +53,12 @@ public class Html5Audio extends HtmlObject {
 				+ " tabindex='0'"
 //				+ " onended='function() { alert(\"Tada\"); }'"
 				+ " onended='alert(\"Tada\")'"
-				+ ">"
-				+ "<source id='primary' src='" + source + "'>"
-				+ alt
-				+ "</audio>";
+				+ ">";
+		for(HtmlObject c : children) if(c != null) html += c.toHtml();
+//		html += "<source id='primary' src='" + source + "'>";
+		html += alt;
+		html += "</audio>";
+		return html;
 	}
 
 }

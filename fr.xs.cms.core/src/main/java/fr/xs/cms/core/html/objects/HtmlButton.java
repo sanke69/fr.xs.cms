@@ -79,7 +79,7 @@ public class HtmlButton extends HtmlObject {
 			html += " target='" + request.getTarget() + "'";
 		html += " >";
 
-		html += "<button type='submit'>" + label + "</button>";
+		html += "<button type='submit'" + (style != null ? " " + style.toHtml() : "") + ">" + label + "</button>";
 
 		html += "</form>";
 		return html;

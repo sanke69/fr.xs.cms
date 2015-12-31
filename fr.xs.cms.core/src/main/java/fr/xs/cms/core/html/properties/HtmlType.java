@@ -108,6 +108,7 @@ public enum HtmlType {
 	
 	AUDIO(0x00012001, "audio"),
 	VIDEO(0x00012002, "video"),
+	SOURCE(0x00012003, "source"),
 
 	ABBR(0x00000002, "abbr"), ACRONYM(0x00000002, "acronym"), ADDRESS(0x00000002, "address"),
 	AREA(0x00000002, "area"), 

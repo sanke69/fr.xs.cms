@@ -9,7 +9,7 @@
 		<version>0.9.3.1</version>
 	</parent>
 
-	<name>XS CMS ToolKit (CMS)</name>
+	<name>CMS ToolKit (CMS)</name>
 	<artifactId>fr.xs.cms.core</artifactId>
 	<packaging>jar</packaging>
 
@@ -17,7 +17,7 @@
 		<dependency><!-- Personal API -->
 			<groupId>com.xs</groupId>
 			<artifactId>fr.xs.jtk</artifactId>
-			<version>[0,)</version>
+			<version>[0.9,)</version>
 		</dependency>
 
 		<dependency><!-- JAVAX SERVLET -->

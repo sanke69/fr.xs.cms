@@ -1,5 +1,7 @@
 package fr.xs.cms.core.html.objects;
 
+import java.util.List;
+
 import fr.xs.cms.core.html.HtmlObject;
 import fr.xs.cms.core.html.properties.HtmlEventListener;
 import fr.xs.cms.core.html.properties.HtmlType;
@@ -13,6 +15,8 @@ public class Html5Video extends HtmlObject {
 	String  id, source, alt;
 	int     width, height;
 	boolean autoplay, loop, muted;
+
+	protected List<Html5Source> sources;
 	
 	public Html5Video() {
 		super(HtmlType.VIDEO);
@@ -49,24 +53,31 @@ public class Html5Video extends HtmlObject {
 	public Html5Video setMuted(boolean _b) { muted = _b; return this; } 
 
 	@Override public String toHtml() { 
-		return "<video "
-				+ (id       != null  ? "id='" + id + "' " : "")
-				+ (width  > 0 ? "width=" + width : "")
-				+ (height > 0 ? "height=" + height : "")
-				+ (autoplay != false ? "autoplay" : "")
-				+ (loop     != false ? "loop" : "")
-				+ (muted    != false ? "Nmuted" : "")
-				+ "controls='controls'"
-				+ "preload='auto'"
-				+ "tabindex='0'"
-				+ " />"
-				+ "<source id='primary' src='" + source + "'>"
+		String html =  "<video"
+				+ (id       != null  ? " id='" + id + "' " : "")
+				+ (width  > 0 ? " width=" + width : "")
+				+ (height > 0 ? " height=" + height : "")
+				+ (autoplay != false ? " autoplay" : "")
+				+ (loop     != false ? " loop" : "")
+				+ (muted    != false ? " Nmuted" : "")
+				+ " controls='controls'"
+				+ " preload='auto'"
+				+ " tabindex='0'"
+				+ ">";
+		for(HtmlObject c : children) if(c != null) html += c.toHtml();
+		html += alt;
+		html += "</video>";
+		
+		return html;
+		
+		
+//				+ "<source id='primary' src='" + source + "' type='" + "video/mp4" + "'" + " />"
 //				+ "<source src='/spwebsite/WEB-RES/rc/video/small.mp4' type='video/mp4' />"
 //				+ "<source src='/spwebsite/WEB-RES/rc/video/small.webm' type='video/webm' />"
 //				+ "<source src='/spwebsite/WEB-RES/rc/video/small.ogv' type='video/ogg' />"
 //				+ "<source src='/spwebsite/WEB-RES/rc/video/small.3gp' type='video/3gp' />"
-				+ alt
-				+ "</video>";
+//				+ alt
+//				+ "</video>";
 	}
 
 }
